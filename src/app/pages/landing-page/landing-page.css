@@ -1,0 +1,51 @@
+/* 1. The Keyframes - One version to rule them all */
+@keyframes scroll-loop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.3333%); }
+}
+
+/* 2. The Scroller Engine */
+.animate-infinite-scroll {
+  display: flex;
+  width: max-content; /* Critical: allows content to grow beyond screen */
+  animation: scroll-loop 30s linear infinite;
+}
+
+/* 3. Pause Logic */
+.pause-on-hover:hover .animate-infinite-scroll {
+  animation-play-state: paused;
+}
+
+/* 4. The Edge Masking (Premium Feel) */
+.mask-edges {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+}
+
+/* 5. Card Hover Interactions */
+.menu-card-wrapper {
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Focus effect: Dim others when one is hovered */
+.scroll-content:hover .menu-card-wrapper:not(:hover) {
+  opacity: 0.4;
+  filter: blur(2px) scale(0.95);
+}
+
+.menu-card-wrapper:hover {
+  transform: translateY(-15px) scale(1.02);
+  z-index: 20;
+}
