@@ -1,0 +1,27 @@
+/* Slow bounce for the Valet badge */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 4s ease-in-out infinite;
+}
+
+/* Grayscale map trick to keep it premium */
+iframe {
+  filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+/* On hover, bring back colors */
+.grayscale:hover iframe {
+  filter: none;
+}
+
+h1 {
+  letter-spacing: -0.03em;
+}
+
+p {
+  letter-spacing: 0.01em;
+}

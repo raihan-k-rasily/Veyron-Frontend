@@ -1,0 +1,27 @@
+/* Custom rounded shapes for the "ateliers" */
+.rounded-t-full {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+}
+
+/* Add a subtle "Gold Glow" on hover for the pillars */
+.group:hover .relative {
+  box-shadow: 0 0 40px -10px rgba(212, 175, 55, 0.3);
+  border-color: rgba(212, 175, 55, 0.6);
+  transition: all 0.7s ease;
+}
+
+/* Letter spacing for luxury headers */
+h1 {
+  letter-spacing: -0.02em;
+}
+
+/* The vertical "Roastery" pillar is taller for visual interest */
+@media (min-width: 768px) {
+  .md\:h-\[600px\] {
+    height: 600px;
+  }
+  .md\:-mt-10 {
+    margin-top: -2.5rem;
+  }
+}

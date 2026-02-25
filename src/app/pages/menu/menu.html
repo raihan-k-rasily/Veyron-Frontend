@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<section class="bg-veyron-cream min-h-screen">
+  
+  <div class="bg-veyron-emerald pt-40 pb-20 w-full px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16" data-aos="fade-down">
+        <span class="text-veyron-gold font-mono tracking-[0.5em] text-xs uppercase">The Collection</span>
+        <h1 class="text-white text-6xl font-serif italic mt-4">Our Menu</h1>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <button *ngFor="let cat of categories" (click)="setCategory(cat)"
+          [class.active-btn]="selectedCategory() === cat"
+          class="px-8 py-3 rounded-full border border-veyron-gold/20 text-white/80 font-medium transition-all duration-500 hover:border-veyron-gold hover:text-veyron-gold">
+          {{ cat }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto py-20 px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div *ngFor="let item of filteredItems()" class="menu-card group" data-aos="fade-up">
+
+        <div class="relative h-80 overflow-hidden rounded-[2rem] mb-6 shadow-xl">
+          <img [src]="item.img"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+          <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-4 py-1 rounded-full text-veyron-emerald font-bold text-sm">
+            {{ item.price }}
+          </div>
+        </div>
+
+        <div class="px-2">
+          <span class="text-veyron-gold font-mono text-[10px] uppercase tracking-widest">{{ item.cat }}</span>
+          <h3 class="text-veyron-emerald text-2xl font-serif italic mt-1 group-hover:text-veyron-gold transition-colors">
+            {{ item.name }}
+          </h3>
+          <p class="text-veyron-emerald/50 text-sm mt-2 leading-relaxed font-light">
+            {{ item.desc }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

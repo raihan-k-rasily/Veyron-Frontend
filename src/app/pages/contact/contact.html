@@ -1,0 +1,65 @@
+<app-header></app-header>
+
+<section class="min-h-screen bg-veyron-emerald pt-32">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      
+      <div class="text-white" data-aos="fade-right">
+        <span class="text-veyron-gold font-mono tracking-[0.5em] text-xs uppercase">Visit Us</span>
+        <h1 class="text-6xl md:text-8xl font-serif italic mt-4 mb-8">The <span class="text-veyron-gold">Flagship</span></h1>
+        
+        <div class="space-y-12">
+          <div>
+            <h3 class="text-veyron-gold font-mono text-[10px] uppercase tracking-widest mb-2">Location</h3>
+            <p class="text-2xl font-light leading-relaxed">
+              {{location.address}}<br>
+              {{location.city}}
+            </p>
+            <button class="mt-4 text-veyron-gold border-b border-veyron-gold/30 pb-1 hover:border-veyron-gold transition-all text-sm uppercase tracking-widest">
+              Get Directions
+            </button>
+          </div>
+
+          <div>
+            <h3 class="text-veyron-gold font-mono text-[10px] uppercase tracking-widest mb-4">Hours of Operation</h3>
+            <div *ngFor="let h of location.hours" class="flex justify-between max-w-sm mb-2 border-b border-white/10 pb-2">
+              <span class="font-light">{{h.day}}</span>
+              <span class="text-white/60 italic">{{h.time}}</span>
+            </div>
+          </div>
+
+          <div class="flex gap-12">
+            <div>
+              <h3 class="text-veyron-gold font-mono text-[10px] uppercase tracking-widest mb-2">Inquiries</h3>
+              <p class="font-light">{{location.phone}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative" data-aos="fade-left">
+        <div class="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border border-veyron-gold/20">
+          <img src="paking.jpeg" class="w-full h-[600px] object-cover">
+        </div>
+        
+        <div class="absolute -bottom-6 -left-6 w-full h-full border-2 border-veyron-gold/20 rounded-[3rem] -z-10"></div>
+        
+        <div class="absolute -top-10 -right-10 bg-veyron-gold p-8 rounded-full shadow-2xl animate-bounce-slow">
+            <span class="text-veyron-emerald font-serif italic text-xl">Valet<br>Parking</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-32 rounded-[4rem] overflow-hidden border border-veyron-gold/10 grayscale hover:grayscale-0 transition-all duration-1000 h-[400px] relative">
+      <div class="absolute inset-0 bg-veyron-gold/5 flex items-center justify-center">
+        <p class="text-veyron-gold font-serif italic">Interactive Map Interface</p>
+      </div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.394698739078!2d76.72207972802545!3d9.901047214954378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07c53033394429%3A0xc9c062881c07b25e!2sMalabar%20fresh!5e0!3m2!1sen!2sin!4v1772004122813!5m2!1sen!2sin" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    </div>
+<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.394698739078!2d76.72207972802545!3d9.901047214954378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07c53033394429%3A0xc9c062881c07b25e!2sMalabar%20fresh!5e0!3m2!1sen!2sin!4v1772004122813!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+  </div>
+</section>
+
+<app-footer></app-footer>
