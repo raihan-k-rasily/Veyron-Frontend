@@ -1,32 +1,43 @@
-<nav class="fixed top-0 w-full z-50 px-8 py-6" data-aos="fade-up">
-  <div class="max-w-7xl mx-auto flex justify-between items-center backdrop-blur-md bg-veyron-emerald/20 border border-veyron-gold/30 rounded-full px-10 py-4">
+<nav class="fixed top-0 w-full z-50 px-4 md:px-8 py-4 md:py-6" data-aos="fade-down">
+  <div class="max-w-7xl mx-auto flex justify-between items-center backdrop-blur-md bg-veyron-emerald/80 border border-veyron-gold/30 rounded-full px-6 md:px-10 py-3 md:py-4 relative">
     
-    <div routerLink="/" class="text-veyron-gold font-serif text-3xl tracking-tighter font-bold cursor-pointer">
+    <div routerLink="/" class="text-veyron-gold font-serif text-2xl md:text-3xl tracking-tighter font-bold cursor-pointer z-50">
       VEYRON
     </div>
 
     <ul class="hidden md:flex gap-8 text-white/80 font-medium">
-      <li routerLink="/" class="hover:text-veyron-gold cursor-pointer transition-colors">Home</li>
-      
-      <li routerLink="/story" 
-          routerLinkActive="text-veyron-gold" 
-          class="hover:text-veyron-gold cursor-pointer transition-colors">
-        Our Story
-      </li>
-      
-      <li routerLink="/menu" 
-          routerLinkActive="text-veyron-gold" 
-          class="hover:text-veyron-gold cursor-pointer transition-colors">
-        Menu
-      </li>
-
-      <li routerLink="/location" 
-          routerLinkActive="text-veyron-gold" 
-          class="hover:text-veyron-gold cursor-pointer transition-colors">Locations</li>
+      <li routerLink="/" routerLinkActive="text-veyron-gold" [routerLinkActiveOptions]="{exact: true}">Home</li>
+      <li routerLink="/story" routerLinkActive="text-veyron-gold">Our Story</li>
+      <li routerLink="/menu" routerLinkActive="text-veyron-gold">Menu</li>
+      <li routerLink="/location" routerLinkActive="text-veyron-gold">Locations</li>
     </ul>
 
-    <button class="bg-veyron-gold text-veyron-emerald px-6 py-2 rounded-full font-bold hover:bg-veyron-emerald hover:text-veyron-gold transition-all">
-      Order Now
-    </button>
+    <div class="flex items-center gap-4">
+      <button class="hidden sm:block bg-veyron-gold text-veyron-emerald px-5 py-2 rounded-full font-bold text-sm hover:bg-veyron-emerald hover:text-veyron-gold border border-veyron-gold transition-all">
+        Order Now
+      </button>
+      
+      <button (click)="toggleMenu()" class="md:hidden text-veyron-gold z-50 p-2">
+        <div class="w-6 h-0.5 bg-veyron-gold mb-1.5 transition-all" [class.rotate-45]="isMenuOpen" [class.translate-y-2]="isMenuOpen"></div>
+        <div class="w-6 h-0.5 bg-veyron-gold mb-1.5 transition-all" [class.opacity-0]="isMenuOpen"></div>
+        <div class="w-6 h-0.5 bg-veyron-gold transition-all" [class.-rotate-45]="isMenuOpen" [class.-translate-y-2]="isMenuOpen"></div>
+      </button>
+    </div>
+
+    <div class="fixed inset-0 h-screen w-screen bg-veyron-emerald transition-all duration-500 ease-in-out flex flex-col items-center justify-center gap-8 md:hidden"
+         [class.translate-x-0]="isMenuOpen"
+         [class.translate-x-full]="!isMenuOpen">
+      
+      <ul class="text-center space-y-8">
+        <li (click)="toggleMenu()" routerLink="/" class="text-3xl text-white font-serif italic">Home</li>
+        <li (click)="toggleMenu()" routerLink="/story" class="text-3xl text-white font-serif italic">Our Story</li>
+        <li (click)="toggleMenu()" routerLink="/menu" class="text-3xl text-white font-serif italic">Menu</li>
+        <li (click)="toggleMenu()" routerLink="/location" class="text-3xl text-white font-serif italic">Locations</li>
+      </ul>
+      
+      <button (click)="toggleMenu()" class="mt-8 bg-veyron-gold text-veyron-emerald px-10 py-4 rounded-full font-bold uppercase tracking-widest">
+        Order Now
+      </button>
+    </div>
   </div>
 </nav>

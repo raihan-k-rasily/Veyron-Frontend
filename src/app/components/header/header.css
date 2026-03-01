@@ -2,6 +2,7 @@
 nav ul li {
   position: relative;
   padding-bottom: 4px;
+  cursor: pointer
 }
 
 nav ul li::after {
@@ -54,4 +55,43 @@ router-outlet + * {
     transform: translateY(0);
     filter: blur(0px);
   }
+}
+
+/* Update the glassmorphism for better mobile legibility */
+@media (max-width: 768px) {
+  nav .backdrop-blur-md {
+    background-color: rgba(2, 44, 34, 0.95); /* More solid on mobile */
+    margin: 0 10px; /* Slight gap from edges */
+  }
+}
+
+/* Fix for the fullscreen overlay */
+.fixed.inset-0 {
+  z-index: 40; /* Just below the toggle button */
+  pointer-events: all;
+}
+
+/* Animating the Hamburger Menu Lines */
+button div {
+  transform-origin: center;
+}
+
+/* Subtle Gold Pulse for Mobile CTA */
+.fixed.inset-0 button {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Hover effects for mobile links */
+.fixed.inset-0 ul li:active {
+  color: var(--color-veyron-gold);
+  transform: scale(0.95);
+  transition: 0.2s;
+}
+/* Ensure Logo also shows pointer */
+.font-serif.cursor-pointer {
+  cursor: pointer;
+}
+/* Ensure Logo also shows pointer */
+.font-serif.cursor-pointer {
+  cursor: pointer;
 }
